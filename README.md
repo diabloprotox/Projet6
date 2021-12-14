@@ -4,25 +4,28 @@ Piiquante, site dédie à la création de sauces épicées dont les recettes son
 secrètes.
 
 
-Pre-requis
+## Pre-requis
 
-Framework : Express 
-Serveur : NodeJS 
-Base de données : MongoDB, Mongoose 
+- Framework : Express 
+- Serveur : NodeJS 
+- Base de données : MongoDB, Mongoose 
 
 
-Installation
+## Installation
 
-Frontend:
-Intaller les dépendances : npm install 
-Lancer le server : npm start 
+### Frontend:
+
+Intaller les dépendances : ``npm install`` 
+
+Lancer le server : ``npm start`` 
 
 Une fois lance le server si le navigateur ne s'ouvre pas, ouvrez http://localhost:8080.
 
-Backend: 
+### Backend: 
 
-Installer toutes les dépendances : npm install
-Lancer le server : nodemon server
+Installer toutes les dépendances : ``npm install`` 
+ 
+Lancer le server : ``nodemon server``
 
 
 
