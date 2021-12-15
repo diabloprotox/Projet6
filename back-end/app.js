@@ -2,7 +2,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const cors = require('cors');
-
+const helmet = require('helmet');
+const mongoSanitizer = require('express-mongo-sanitize');
 
 const userRoutes = require('./routes/user');
 const sauceRoutes = require('./routes/sauce');
@@ -17,6 +18,7 @@ mongoose.connect('mongodb+srv://admin:piiquante@cluster0.chw6d.mongodb.net/myFir
 
 const app = express();
 
+app.use(helmet());
 app.use(cors());
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -24,6 +26,7 @@ app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
     next();
 });
+app.use(mongoSanitizer());
 
 
 app.use(bodyParser.json());
