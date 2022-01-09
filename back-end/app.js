@@ -5,12 +5,14 @@ const cors = require('cors');
 const helmet = require('helmet');
 const mongoSanitizer = require('express-mongo-sanitize');
 
+require("dotenv").config();
+
 const userRoutes = require('./routes/user');
 const sauceRoutes = require('./routes/sauce');
 
 const path = require('path');
 
-mongoose.connect('mongodb+srv://admin:piiquante@cluster0.chw6d.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
+mongoose.connect(process.env.CONNECT_DB, {
     useNewUrlParser: true, useUnifiedTopology: true
 })
     .then(() => console.log('Connexion à MongoDB réussie!'))
@@ -34,7 +36,5 @@ app.use('/images',express.static(path.join(__dirname,'images')));
 
 app.use('/api/auth', userRoutes);
 app.use('/api/sauces', sauceRoutes);
-
-
 
 module.exports = app;
